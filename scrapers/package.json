@@ -1,0 +1,39 @@
+{
+  "name": "anime-league",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "npm run build-ts && npm run lint && npm run serve",
+    "build": "npm run build-ts && npm run lint",
+    "serve": "node dist/main.js",
+    "watch-node": "nodemon dist/main.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "test": "jest --forceExit --coverage --verbose",
+    "watch-test": "npm run test -- --watchAll",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "lint": "eslint \"./src/**/*.{js,ts}\" --quiet --fix",
+    "debug": "npm run build && npm run watch-debug",
+    "serve-debug": "nodemon --inspect dist/main.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/pg": "^7.14.1",
+    "@types/pg-format": "^1.0.0",
+    "@types/puppeteer": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.12.0",
+    "@typescript-eslint/parser": "^2.12.0",
+    "concurrently": "^5.0.1",
+    "eslint": "^6.7.2",
+    "nodemon": "^2.0.2",
+    "pg": "^7.17.0",
+    "pg-format": "^1.0.4",
+    "puppeteer": "^2.0.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
+  }
+}
